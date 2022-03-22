@@ -1,6 +1,5 @@
 package Sessio1;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,11 +9,7 @@ public class JocVida extends JFrame implements ActionListener {
 	
 	private Casella[][] taulell;
 	private int generacio=0;
-	private int generacionsTotals;
-	private int files;
-	private int columnes;
-	private int organismes;
-	private int organismesTotals;
+	private int generacionsTotals,files,columnes,organismes,organismesTotals;
 	
 	private boolean game_over=false;
 	
@@ -23,7 +18,6 @@ public class JocVida extends JFrame implements ActionListener {
 	JTextField numFiles,numColumnes,numGeneracions,numEssersVius;
 	JButton submitDades,nextGeneracio;
 	
-
 	public JocVida() {
 		setLayout(new BorderLayout());
 		
@@ -123,7 +117,6 @@ public class JocVida extends JFrame implements ActionListener {
 			}
 	    }
 	}
-	
 	private void setEnabledDades(boolean b) {
 		// fer un for q iteri per cada element
 		numFiles.setEnabled(b);
@@ -154,6 +147,7 @@ public class JocVida extends JFrame implements ActionListener {
 		}
 		return t;
 	}
+
 	
 	public static void main(String[] args) {
 		new JocVida();
@@ -161,16 +155,7 @@ public class JocVida extends JFrame implements ActionListener {
 	
 	///////////////////////////////////////////////////   JocVida   /////////////////////////////////////////////////////////
 	
-	public void treureVida() {
-		organismes=0;
-		for (int y=0; y<taulell.length; y++) {
-			for (int x=0; x<taulell[y].length; x++) {
-				taulell[y][x].setEstat(false);
-			}
-		}
-	}
-	
-	public void posarVida(int N) {
+	private void posarVida(int N) {
 		for(int i=0; i<N; i++) {
 			int x,y;
 			do {
@@ -180,16 +165,14 @@ public class JocVida extends JFrame implements ActionListener {
 			taulell[y][x].setEstat(true);
 		}
 	}
-	
-	public void mostraTaulell() {
+	private void mostraTaulell() {
 		for (int y = 0; y<files; y++) {
 			for (int x = 0; x<columnes; x++) {
 				panel_taulell.add(taulell[y][x], y,x);
 			}
 		}
 	}
-	
-	public boolean ferGeneracio() {
+	private boolean ferGeneracio() {
 		Casella[][] aux=crearTaulell();
 		int igualtats=0;
 		
@@ -211,7 +194,6 @@ public class JocVida extends JFrame implements ActionListener {
 		
 		return( igualtats!=files*columnes );
 	}
-	
 	private int quantesVeines(int fil, int col) {
 		int veines=0;
 		
@@ -227,7 +209,7 @@ public class JocVida extends JFrame implements ActionListener {
 
 		return veines;
 	}
-	private void copiar(Casella[][] origen) {		
+	private void copiar(Casella[][] origen) {
 		for (int y = 0; y<origen.length; y++) {
 			for (int x = 0; x<origen[y].length; x++) {
 				taulell[y][x].setEstat(origen[y][x].getEstat());
