@@ -1,17 +1,19 @@
 package Sessio1;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class Casella {
+
+public class Casella extends JPanel {
     public Casella(){
-        setbackground(Color.black);
+        setBackground(Color.black);
         // border necesari?
     }
 
-    public boolean getEstat()}{ return !(getBackground().equals(Color.black)) } // 1=viu;0=mort;
+    public boolean getEstat(){ return !(getBackground().equals(Color.black)); } // 1=viu;0=mort;
     public void alternarEstat(){
-        if(getEstat()) setbackground(Color.black);
-        else setbackground(Color.white);
+        if(getEstat()) setBackground(Color.black);
+        else setBackground(Color.white);
     }
     // public void setEstat() {} ???
 }
