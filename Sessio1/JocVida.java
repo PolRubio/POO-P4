@@ -1,36 +1,31 @@
 package Sessio1;
 
 import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class JocVida extends JFrame implements ActionListener {
 
+	JPanel p1;
 	JButton boton1;
+	
 
 	public JocVida() {
-	
-	   //Layout absoluto
-		setLayout(null);
-		
-		//Tamaño de la ventana
+		p1 = new JPanel();
+		p1.setLayout(new GridLayout(15,1));
 		setBounds(0,0,450,350);
-		
-		//Título
 		setTitle("JOC de la VIDA!!!");
-		
-		//No redimensionable
 		setResizable(false);
-		
-		//Cerrar proceso al cerrar la ventana
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		//Botón
 		boton1=new JButton("Finalizar");
-		boton1.setBounds(300,250,100,30);
+		//boton1.setBounds(0,0,100,30);
 		add(boton1);
-		boton1.addActionListener(this);
+		boton1.addActionListener((ActionListener) this);
 		
-		//Muestro JFrame (lo último para que lo pinte todo correctamanete)
+		
 	    setVisible(true);
 	
 	
