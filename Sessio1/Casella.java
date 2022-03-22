@@ -2,8 +2,8 @@ package Sessio1;
 
 import javax.swing.*;
 
-public class Casella {
-    public Casella(){
+public class Casella extends JPanel{
+	public Casella(){
         setbackground(Color.black);
         // border necesari?
     }

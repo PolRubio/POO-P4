@@ -1,45 +1,49 @@
 package Sessio1;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import javax.swing.*;
+import java.awt.event.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JSplitPane;
-import javax.swing.JSeparator;
+public class GUI extends JFrame implements ActionListener {
 
-public class GUI extends JFrame {
+	JButton boton1;
 
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public GUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
-	}
-
+	
+	   //Layout absoluto
+		setLayout(null);
+		
+		//Tamaño de la ventana
+		setBounds(0,0,450,350);
+		
+		//Título
+		setTitle("Ejemplo 1: Botón");
+		
+		//No redimensionable
+		setResizable(false);
+		
+		//Cerrar proceso al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		//Botón
+		boton1=new JButton("Finalizar");
+		boton1.setBounds(300,250,100,30);
+		add(boton1);
+		boton1.addActionListener(this);
+		
+		//Muestro JFrame (lo último para que lo pinte todo correctamanete)
+	    setVisible(true);
+	
+	
+	  }
+	
+	  public void actionPerformed(ActionEvent e) {
+	    if (e.getSource() == boton1) {
+	    	System.out.print("adeu");
+	    	System.exit(0);
+	    }
+	  }
+	
+	  public static void main(String[] args) {
+	    new GUI();
+	  }
 }
